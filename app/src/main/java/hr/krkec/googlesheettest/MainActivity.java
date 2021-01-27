@@ -113,9 +113,10 @@ public class MainActivity extends AppCompatActivity {
                 .setDataStoreFactory(f)
                 .setAccessType("offline")
                 .build();
-       //LocalServerReceiver receiver = new LocalServerReceiver.Builder().setPort(8888).build();
+       LocalServerReceiver receiver = new LocalServerReceiver.Builder().setPort(8888).build();
         //return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
-        return new AuthorizationCodeInstalledApp(flow, new LocalServerReceiver()).authorize("user");
+        //return new AuthorizationCodeInstalledApp(flow, receiver).authorize("user");
+        return new AuthorizationCodeInstalledApp(flow, new LocalServerReceiver.Builder().setPort(8888).build()).authorize("user");
     }
 
     /**
